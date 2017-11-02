@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Player;
     public float speed;
     public Rigidbody2D rigid;
-    public bool jump;
+	public bool ground;
 
     // Use this for initialization
     void Start()
@@ -15,10 +15,10 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody2D rigid = Player.GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        jump = true;
-        print("worked");
+		ground = true;
+        //print("Colliding");
     }
 
     // Update is called once per frame
@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(-1 * move, 0, 0);
         }
-        if (Input.GetKey("space"))
+        if (Input.GetKey("space") && ground)
         {
-            if (jump == true)
-            {
-                rigid.AddForce(Vector2.up * 200);
-                jump = false;
-            }
+
+            rigid.AddForce(Vector2.up * 200);
+			ground = false;
+			//print ("Jump turned to false");
+            
         }
     }
 }
