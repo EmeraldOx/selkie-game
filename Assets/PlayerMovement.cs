@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Rigidbody2D rigid = Player.GetComponent<Rigidbody2D>();
+        //Rigidbody2D rigid = Player.GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
