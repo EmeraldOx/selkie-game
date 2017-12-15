@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float move = 1 * Time.deltaTime;
+        float move = speed * Time.deltaTime;
         if (Input.GetKey("d"))
         {
             transform.Translate(move, 0, 0);
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("space") && ground)
         {
 
-            rigid.AddForce(Vector2.up * 200);
+            rigid.AddForce(Vector2.up * 400);
 			ground = false;
 			//print ("Jump turned to false");
             
